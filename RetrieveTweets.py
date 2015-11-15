@@ -12,13 +12,17 @@ def retrieveTweets(keyword):
             access_token = '2157789854-Fwr0uDJQ23twqSyxPEH0VnPwafQvpay8K2z7aFQ',
             access_token_secret = 'q9S6ECBpBv1RMBG8iNT8cYdoJvQAoIMZfMHAivs5Fh0PQ')
 
+        htmlstring = ""
+
         i = 0
         for tweet in ts.search_tweets_iterable(tso):
-            print( '@%s tweeted: %s' % ( tweet['user']['screen_name'], tweet['text'] ) )
+            htmlstring += "<div><strong><a href='http://twitter.com/%s'>@%s</a></strong> %s" % (tweet['user']['screen_name'], tweet['user']['screen_name'], tweet['text']) + '</div>'
 
             i += 1
-            if i > 10:
+            if i > 1:
                 break
 
     except TwitterSearchException as e:
         print(e)
+
+    return htmlstring
