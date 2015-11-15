@@ -28,7 +28,7 @@ def getNewsExcerpts(keyword):
 		if(data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["entities"]) > 0:
 			entities = entities[:(len(entities) - 2)]
 		miniTitles.append(title)
-		htmlStrings.append("<div style='width:100%'><strong>" + headline + "</strong><br><b>Sentiment:</b>" + str(sentiment)  + "<br><b>Entities:</b> " + entities + "<br><a href='" + url + "'>Read more</a></div>")
+		htmlStrings.append("<a href=" + url + "class=\"headlinePanel\">" + headline + "</a>" + "<i id=\"entitiesIcon\" style=\"font-size: 30px\" class=\"fa fa-users\"></i>" + "<div class=\"entitiesPanel\">" + entities + "</div>")
 	print "News loaded."
 
 	return {

@@ -16,26 +16,29 @@ def search():
 @app.route("/<keyword>")
 def ruckme(keyword):
 	# Fetch nouns associated with keyword
+	# print "below are the nouns"
 	nouns = nounsEngine.retrieveTopNouns(keyword)
+	# print nouns
 	miniTitles = []
 	htmlStrings = []
 	# For each noun, generate html string
 	for noun in nouns:
+		print noun
 		miniTitles.append(noun)
 		htmlStrings.append(contentEngine.genContent(noun))
 	
 	print "Content actually done."
-	newsList = contentEngine.newsContents(keyword)
-	for i in range(0, len(newsList['strings'])):
-		print newsList
-		htmlStrings.append(newsList['strings'][i])
-		miniTitles.append(newsList['titles'][i])
+	# newsList = contentEngine.newsContents(keyword)
+	# for i in range(0, len(newsList['strings'])):
+	# 	print newsList
+	# 	htmlStrings.append(newsList['strings'][i])
+	# 	miniTitles.append(newsList['titles'][i])
 
-	print "News done"
+	# print "News done"
 	# Pass html strings into resultsPage to generate graphic.
 
-	print htmlStrings
-	print miniTitles
+	# print htmlStrings
+	# print miniTitles
 	return render_template('resultsPage.html', htmlStrings=htmlStrings, miniTitles=miniTitles)
 
 if __name__ == "__main__":
