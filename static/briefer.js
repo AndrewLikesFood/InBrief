@@ -1,4 +1,6 @@
-$(document).ready(function () {
+
+//$(document).ready(function () {
+function drawChart(titles, strings){ 
   var bubbleChart = new d3.svg.BubbleChart({
     supportResponsive: true,
     //container: => use @default
@@ -106,4 +108,4 @@ $(document).ready(function () {
         }
       }]
   });
-});
+}

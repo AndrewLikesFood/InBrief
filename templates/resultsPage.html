@@ -20,8 +20,9 @@
   <script src="../static/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
   <script src="../static/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="../static/briefer.js">
+  </script>
 
-  <script src="../static/briefer.js"></script>
   <style>
     .bubbleChart {
       width: 100%;
@@ -119,5 +120,8 @@
 <div class="wikipediaPanel">
 	The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes. It was one of the earliest fish to be domesticated, and is one of the most commonly kept aquarium fish. The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes. It was one of the earliest fish to be domesticated, and is one of the most commonly kept aquarium fish.
 </div>
+  <script>
+    drawChart({{miniTitles|tojson}}, {{htmlStrings|tojson}});;
+  </script>
 </body>
 </html>
