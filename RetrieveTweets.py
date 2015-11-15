@@ -13,6 +13,7 @@ def retrieveTweets(keyword):
             access_token_secret = 'q9S6ECBpBv1RMBG8iNT8cYdoJvQAoIMZfMHAivs5Fh0PQ')
 
         htmlstring = ""
+        print "lolpls"
 
         i = 0
         for tweet in ts.search_tweets_iterable(tso):
