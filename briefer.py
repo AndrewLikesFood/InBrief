@@ -19,7 +19,6 @@ def ruckme(keyword):
 	nouns = nounsEngine.retrieveTopNouns(keyword)
 	miniTitles = []
 	htmlStrings = []
-
 	# For each noun, generate html string
 	for noun in nouns:
 		miniTitles.append(noun)
@@ -37,7 +36,6 @@ def ruckme(keyword):
 	print htmlStrings
 	print miniTitles
 	return render_template('resultsPage.html', htmlStrings=htmlStrings, miniTitles=miniTitles)
-
 
 if __name__ == "__main__":
 	app.run()
