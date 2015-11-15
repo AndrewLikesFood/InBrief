@@ -6,6 +6,8 @@ def getWikiExcerpt(keyword):
 	print url
 	response = urllib.urlopen(url)
 	data = json.loads(response.read())
+	if data['query']['pages'].keys()[0] == "-1":
+		return ""
 	title = data['query']['pages'].itervalues().next()['title']
 	data = data['query']['pages'].itervalues().next()['extract']
 	iterBegin = 200 if len(data) > 200 else len(data)

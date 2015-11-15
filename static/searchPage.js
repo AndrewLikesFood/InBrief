@@ -7,10 +7,12 @@ $(document).ready(function () {
             console.log("Nothing entered, fool.");
     	} else {
             $("#submitError").css("display", "none");
-      	    console.log("input is: " + $('#briefInput').val());
-            window.location.href = "http://127.0.0.1:5000/" + searchQuery;
     	}
-    	
+
+      		console.log("input is: " + $('#briefInput').val());
+      	    window.location.href = "http://127.0.0.1:5000/" + searchQuery;
+
+    	}
     	/*$.ajax({
         	url: '/results',
         	data: searchQuery,
