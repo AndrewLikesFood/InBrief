@@ -19,7 +19,9 @@ def getNewsExcerpts(keyword):
 			endRange = endRange + 1 
 			continue
 		title = data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["concepts"][0]["text"]
+
 		headline = data["result"]["docs"][i]["source"]["enriched"]["url"]["title"][:50]
+
 		url = data["result"]["docs"][i]["source"]["enriched"]["url"]["url"]
 		sentiment = data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["docSentiment"]["score"]
 		entities = ""

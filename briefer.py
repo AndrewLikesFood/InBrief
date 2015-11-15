@@ -37,11 +37,11 @@ def ruckme(keyword):
 	 	htmlStrings.append(newsList['strings'][i])
 	 	miniTitles.append(newsList['titles'][i])
 
-	# print "News done"
-	# Pass html strings into resultsPage to generate graphic.
+	print "News done"
+	Pass html strings into resultsPage to generate graphic.
 
-	# print htmlStrings
-	# print miniTitles
+	print htmlStrings
+	print miniTitles
 	url = "http://jss.party/json/" + keyword + "Card.json"
 	print url
 	response = urllib.urlopen(url)
