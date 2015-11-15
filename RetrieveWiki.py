@@ -20,7 +20,5 @@ def getWikiExcerpt(keyword):
 			if i == iterEnd - 2:
 				data = data[:i] + ". . ."
 
-	htmlString = "<div style='width:100%'><strong>Wikipedia</strong> " + title + "<br>" + data + "</div>"
-	htmlString = "WIKIPEDIA"
-	return htmlString
+	return data
 

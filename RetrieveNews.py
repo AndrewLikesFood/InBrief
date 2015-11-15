@@ -35,4 +35,3 @@ def getNewsExcerpts(keyword):
 		"strings": htmlStrings,
 		"titles" : miniTitles
 	}
-	return "NEWS"
