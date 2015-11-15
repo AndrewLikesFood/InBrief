@@ -19,10 +19,15 @@ def strip_tags(html):
     s.feed(html)
     return s.get_data()
 
+def stripBlacklist(listFile, tuples):
+	blist = open(listFile, "r").read().split('\n')
+	return [i for i in tuples if i[0] not in blist ]
+
 def retrieveWikiArticle(keyword):
-	url = "https://en.wikipedia.org/w/api.php?action=parse&prop=text&format=json&page=" + urllib.quote_plus(keyword)
+	url = "https://en.wikipedia.org/w/api.php?action=parse&redirects&prop=text&format=json&page=" + urllib.quote_plus(keyword)
 	response = urllib.urlopen(url)
 	data = json.loads(response.read())
 	rake_object = rake.Rake("SmartStoplist.txt", 5, 3, 4)
 	keywords = rake_object.run(strip_tags(data['parse']['text']['*']))
-	print keywords
+	keywords = stripBlacklist("blackList.txt", keywords)
+	return keywords
