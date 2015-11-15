@@ -22,6 +22,7 @@ d3.svg.BubbleChart.define("central-click", function (options) {
     return function (node) {
       var fn = original.apply(this, arguments);
       node.select("text.central-click").remove();
+      $(".text").css("display", "inline-block");
       $('#card').remove();
       return fn;
     };
@@ -39,6 +40,7 @@ d3.svg.BubbleChart.define("central-click", function (options) {
           .attr("x", function (d) {return d.cx;})
           .attr("y", function (d) {return d.cy;});
         $("body").append("<div id='card'></div>");
+        $("body").find('.active').find('.text').css("display", "none");
         $("#card")
           .html(options.text[parseInt(self.centralNode.attr("id"))]);
       });
