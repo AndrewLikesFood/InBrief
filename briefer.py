@@ -1,22 +1,34 @@
 import os
 import nounsEngine
 import adjectivesEngine
+import contentEngine
+
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template
 
-
+NUM_NEWS = 4
 app = Flask(__name__)
 
 @app.route("/")
 def search():
-	return render_template('searchPage.html')
+    return render_template('searchPage.html')
 
-@app.route("/results", methods=["GET, POST"])
-def results():
-	if request.method == "POST":
-		print request.data
-		return render_template('resultsPage.html', data=request.data)
-	else: 
-		print 'what?'
+@app.route("/<keyword>")
+def ruckme(keyword):
+	# Fetch nouns associated with keyword
+	nouns = nounsEngine.retrieveTopNouns(keyword)
+	htmlStrings = []
+	# For each noun, generate html string
+	for noun in nouns:
+		htmlStrings.append(contentEngine.genContent(noun))
+	for i in range(0, NUM_NEWS):
+		htmlStrings.append(contentEngine.newsContent(keyword))
+
+	# Pass html strings into resultsPage to generate graphic.
+	return render_template('resultsPage.html', data=htmlStrings)
+
+>>>>>>> dade092e7aef1945c2fca6673cecffca87e223f4
 
 if __name__ == "__main__":
 	app.run()
+
+

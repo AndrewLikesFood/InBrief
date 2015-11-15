@@ -6,7 +6,8 @@ $(document).ready(function () {
     	} else {
       	console.log("input is: " + $('#briefInput').val());
     	}
-    	$.ajax({
+    	window.location.href = "http://127.0.0.1:5000/" + searchQuery;
+    	/*$.ajax({
         	url: '/results',
         	data: searchQuery,
         	dataType: "json",
@@ -19,6 +20,6 @@ $(document).ready(function () {
             	console.log(error);
             	console.log("failure!");
         	}
-    	});
+    	});*/
     });
 });
