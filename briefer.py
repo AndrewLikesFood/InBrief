@@ -26,8 +26,6 @@ def ruckme(keyword):
 	# Pass html strings into resultsPage to generate graphic.
 	return render_template('resultsPage.html', data=htmlStrings)
 
->>>>>>> dade092e7aef1945c2fca6673cecffca87e223f4
-
 if __name__ == "__main__":
 	app.run()
 
