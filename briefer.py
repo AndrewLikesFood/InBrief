@@ -10,11 +10,13 @@ app = Flask(__name__)
 def search():
 	return render_template('searchPage.html')
 
-@app.route("/results", methods=["POST"])
+@app.route("/results", methods=["GET, POST"])
 def results():
-	print request.data
-
-	return render_template('resultsPage.html', data=request.data)
+	if request.method == "POST":
+		print request.data
+		return render_template('resultsPage.html', data=request.data)
+	else: 
+		print 'what?'
 
 if __name__ == "__main__":
 	app.run()
