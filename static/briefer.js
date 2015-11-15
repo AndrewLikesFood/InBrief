@@ -12,7 +12,7 @@ function drawChart(titles, strings){
     //viewBoxSize: => use @default
     innerRadius: 600 / 3.0, // used to be 3.5
     //outerRadius: => use @default
-    radiusMin: 55,
+    radiusMin: 63,
     //radiusMax: use @default
     //intersectDelta: use @default
     //intersectInc: use @default
@@ -69,6 +69,8 @@ function drawChart(titles, strings){
               classed: {text: true},
               style: {
                 "font-size": "14px",
+                "word-wrap": "break-word",
+                "width": "120px",
                 "font-family": "Source Sans Pro, sans-serif",
                 "text-anchor": "middle",
                 fill: "white"

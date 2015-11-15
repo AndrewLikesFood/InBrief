@@ -3,7 +3,7 @@ import operator
 import urllib
 import rake
 from HTMLParser import HTMLParser
-
+import re
 
 class MLStripper(HTMLParser):
     def __init__(self):
@@ -29,12 +29,12 @@ def parseTwitter(keyword):
 	tweets = []
 	raker = ""
 	for node in twits:
-		twitTexts.append(''.join(node.find_all(text=True)).strip())
+		twitTexts.append(re.sub(r'^https?:\/\/.*[\r\n]*', '', (''.join(node.find_all(text=True)).strip()), flags=re.MULTILINE))
 	for name in names:
 		posters.append(''.join(name.find_all(text=True)).strip().replace("\nVerified account", ""))
 	for i in range(0, len(twits)):
 		tweets.append({
 			"name": posters[i],
-			"tweet": twitTexts[i]
+			"tweet": twitTexts[i][:140]
 		})
 	return tweets
