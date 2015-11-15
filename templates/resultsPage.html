@@ -32,7 +32,7 @@
     	position:fixed; 
     	top:0; 
     	left:0; 
-    	height:100%; 
+    	height:85%; 
     	width:100% 
     }
     .titlePanel {
@@ -47,7 +47,7 @@
     	align-items: center;
     	position: fixed;
     	width: 305px;
-    	top: 240px;
+    	top: 185px;
     	left: 565px;
     	background: transparent;
     	z-index: 100;
@@ -63,7 +63,7 @@
     	width: 305px;
     	height: 70px;
     	position: fixed;
-    	top: 300px;
+    	top: 240px;
     	left: 590px;
     	background: transparent;
     	border: 1px solid white;
@@ -74,7 +74,7 @@
     	color: white;
     	font-size: : 50px;
     	position: fixed;
-    	top: 324px;
+    	top: 264px;
     	left: 545px;
     	z-index: 100;
     }
@@ -91,7 +91,7 @@
     	width: 305px;
     	height: 160px;
     	position: fixed;
-    	top: 390px;
+    	top: 330px;
     	left: 550px;
     	background: transparent;
     	border: 1px solid white;
@@ -109,7 +109,7 @@
     	color: white;
     	font-size: 30px;
     	position: fixed;
-    	top: 445px;
+    	top: 385px;
     	left: 875px;
     	z-index: 100;
     }
@@ -127,7 +127,7 @@
     	position: fixed;
     	width: 315px;
     	height: 150px;
-    	top: 255px;
+    	top: 190px;
     	left: 558px;
     	background: transparent;
     	z-index: 105;
@@ -147,7 +147,7 @@
     	color: white;
     	font-size: 30px;
     	position: fixed;
-    	top: 450px;
+    	top: 380px;
     	left: 545px;
     	z-index: 100;
     }
@@ -162,12 +162,20 @@
     	width: 305px;
     	height: 70px;
     	position: fixed;
-    	top: 430px;
+    	top: 360px;
     	left: 585px;
     	background: transparent;
     	border: 1px solid white;
     	border-radius: 30px;
     	z-index: 100;
+    }
+    #metrics {
+      background-color:#483D8B;
+      position:absolute;
+      z-index: 100;
+      top:calc(100vh - 100px);
+      width:100%;
+      height:100px;
     }
     
 
@@ -179,5 +187,20 @@
   <script>
   	drawChart({{miniTitles|tojson}}, {{htmlStrings|tojson}});
   </script>
+
+
+</div>
+<div id="metrics">
+  <span id="name">{{cardData}}["Name"]</span>
+  <span id="title">{{cardData}}["Title"]</span>
+</div>
+<script>
+  var cd = {{cardData}};
+  for(var key in cd){
+    if(cd.hasOwnProperty(key)){
+      $("#metrics").append("<span id='" + key + "' class='cTags'>" + key + ": " + cd[key] + "</span>");
+    }
+  }
+</script>
 </body>
 </html>

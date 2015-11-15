@@ -10,9 +10,9 @@ function drawChart(titles, strings){
     //container: => use @default
     size: 650,
     //viewBoxSize: => use @default
-    innerRadius: 600 / 3.5, // used to be 3.5
+    innerRadius: 600 / 3.0, // used to be 3.5
     //outerRadius: => use @default
-    radiusMin: 75,
+    radiusMin: 55,
     //radiusMax: use @default
     //intersectDelta: use @default
     //intersectInc: use @default
