@@ -33,9 +33,10 @@ def search():
     retrieveTweets('Paris')
     return render_template('searchPage.html')
 
-@app.route("/results")
-def index():
-	return render_template('resultsPage.html')
+@app.route("/<shithead>")
+def ruckme(shithead):
+	return render_template('resultsPage.html', data=shithead)
+
 
 if __name__ == "__main__":
 	app.run()

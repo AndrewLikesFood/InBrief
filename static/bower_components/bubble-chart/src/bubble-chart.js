@@ -74,7 +74,7 @@
       var options = self.options;
       while (circles.length < self.items.length && ++interval < self.intervalMax) {
         var val = self.values[circles.length];
-        var rad = Math.max((val * options.radiusMax) / self.valueMax, options.radiusMin);
+        var rad = Math.max((100.0 * options.radiusMax) / self.valueMax, options.radiusMin);
         var dist = self.innerRadius + rad + Math.random() * (self.outerRadius - self.innerRadius - rad * 2);
         var angle = Math.random() * pi2;
         var cx = self.centralPoint + dist * Math.cos(angle);
@@ -91,7 +91,7 @@
           }
         });
         if (!hit) {
-          circles.push({cx: cx, cy: cy, r: rad, item: self.items[circles.length]});
+          circles.push({cx: cx, cy: cy, r: rad, id: circles.length, item: self.items[circles.length]});
         }
       }
       if (circles.length < self.items.length) {
@@ -121,8 +121,9 @@
       self.centralPoint = options.size / 2;
       self.intervalMax = options.size * options.size;
       self.items = options.data.items;
+      self.curCircle = options.curCircle;
       self.values = self.getValues();
-      self.valueMax = self.values.max();
+      self.valueMax = 1000;// self.values.max();
       self.svg = d3.select(options.container).append("svg")
         .attr({preserveAspectRatio: "xMidYMid", width: options.size, height: options.size, class: "bubbleChart"})
         .attr("viewBox", function (d) {return ["0 0", options.viewBoxSize, options.viewBoxSize].join(" ")});
@@ -131,7 +132,13 @@
       var node = self.svg.selectAll(".node")
         .data(self.circlePositions)
         .enter().append("g")
-        .attr("class", function (d) {return ["node", options.data.classed(d.item)].join(" ");});
+        .attr("class", function (d) {
+          return ["node", options.data.classed(d.item)].join(" ");
+        })
+        .attr("id", function(d){
+          return d.id;
+        })
+        //.attr("id", function(d) { return options.data.});
 
       var fnColor = d3.scale.category20();
       node.append("circle")
@@ -140,7 +147,7 @@
           return options.data.color !== undefined ? options.data.color(d.item) : fnColor(d.item.text);
         })
         .attr("opacity", "0.8");
-      node.sort(function (a, b) {return options.data.eval(b.item) - options.data.eval(a.item);});
+      node.sort(function (a, b) {return 1;});//options.data.eval(b.item) - options.data.eval(a.item);});
 
       self.transition = {};
       self.event = $.microObserver.get($.misc.uuid());
