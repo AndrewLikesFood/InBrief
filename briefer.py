@@ -10,9 +10,11 @@ app = Flask(__name__)
 def search():
 	return render_template('searchPage.html')
 
-@app.route("/results")
-def index():
-	return render_template('resultsPage.html')
+@app.route("/results", methods=["POST"])
+def results():
+	print request.data
+
+	return render_template('resultsPage.html', data=request.data)
 
 if __name__ == "__main__":
 	app.run()
