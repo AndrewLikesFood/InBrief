@@ -2,7 +2,6 @@ from TwitterSearch import *
 
 def retrieveTweets(keyword):
     try:
-        print "TWEET"
         tso = TwitterSearchOrder()
         tso.set_keywords([keyword])
         tso.set_language('en')

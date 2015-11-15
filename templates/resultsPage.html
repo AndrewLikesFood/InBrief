@@ -19,8 +19,9 @@
   <script src="../static/bower_components/bubble-chart/src/bubble-chart.js"></script>
   <script src="../static/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
   <script src="../static/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+  <script src="../static/briefer.js">
+  </script>
 
-  <script src="../static/briefer.js"></script>
   <style>
     .bubbleChart {
       width: 100%;
@@ -37,5 +38,8 @@
 </head>
 <body style="background: #FFFFFF">
 <div class="bubbleChart"/>
+  <script>
+    drawChart({{miniTitles|tojson}}, {{htmlStrings|tojson}});;
+  </script>
 </body>
 </html>
