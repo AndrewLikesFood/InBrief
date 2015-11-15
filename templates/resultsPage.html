@@ -82,6 +82,7 @@
     	display: flex;
     	padding: 5px;
     	justify-content: center;
+    	text-decoration: none;
     	font-family: 'Source Sans Pro', sans-serif;
     	text-align: center;
     	font-size: 13px;
@@ -96,6 +97,13 @@
     	border: 1px solid white;
     	border-radius: 40px;
     	z-index: 100;
+    	transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    }
+    .wikipediaPanel:hover {
+    	background-color: #eceff1;
+    	border-color: #607d8b;
+    	box-shadow: inset 0 0 0 5px #607d8b;
+    	color: #607d8b;
     }
     #wikipediaIcon {
     	color: white;
