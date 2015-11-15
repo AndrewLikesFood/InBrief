@@ -2,6 +2,7 @@ import json
 import rake
 import operator
 import urllib
+import unicodedata
 
 from HTMLParser import HTMLParser
 
@@ -30,4 +31,4 @@ def retrieveTopNouns(keyword):
 	rake_object = rake.Rake("SmartStoplist.txt", 5, 3, 4)
 	keywords = rake_object.run(strip_tags(data['parse']['text']['*']))
 	keywords = stripBlacklist("blackList.txt", keywords)
-	return [wd[0] for wd in keywords[:6]]
+	return [unicodedata.normalize('NFKD', wd[0]).encode('ascii','ignore') for wd in keywords[:6]]

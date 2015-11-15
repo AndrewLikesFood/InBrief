@@ -19,7 +19,7 @@ def getNewsExcerpts(keyword):
 			endRange = endRange + 1 
 			continue
 		title = data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["concepts"][0]["text"]
-		headline = data["result"]["docs"][i]["source"]["enriched"]["url"]["title"]
+		headline = data["result"]["docs"][i]["source"]["enriched"]["url"]["title"][:50]
 		url = data["result"]["docs"][i]["source"]["enriched"]["url"]["url"]
 		sentiment = data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["docSentiment"]["score"]
 		entities = ""
@@ -28,7 +28,7 @@ def getNewsExcerpts(keyword):
 		if(data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["entities"]) > 0:
 			entities = entities[:(len(entities) - 2)]
 		miniTitles.append(title)
-		htmlStrings.append("<a href=" + url + "class=\"headlinePanel\">" + headline + "</a>" + "<i id=\"entitiesIcon\" style=\"font-size: 30px\" class=\"fa fa-users\"></i>" + "<div class=\"entitiesPanel\">" + entities + "</div>")
+		htmlStrings.append("<a href=\"" + url + "\" class=\"headlinePanel\">" + headline + "</a>" + "<i id=\"entitiesIcon\" style=\"font-size: 30px\" class=\"fa fa-users\"></i>" + "<div class=\"entitiesPanel\">" + entities + "</div>")
 	print "News loaded."
 
 	return {

@@ -32,7 +32,7 @@
     	position:fixed; 
     	top:0; 
     	left:0; 
-    	height:100%; 
+    	height:85%; 
     	width:100% 
     }
     .titlePanel {
@@ -119,7 +119,7 @@
     	position: fixed;
     	width: 315px;
     	height: 150px;
-    	top: 255px;
+    	top: 210px;
     	left: 558px;
     	background: transparent;
     	z-index: 105;
@@ -161,6 +161,14 @@
     	border-radius: 30px;
     	z-index: 100;
     }
+    #metrics {
+      background-color:#483D8B;
+      position:absolute;
+      z-index: 100;
+      top:calc(100vh - 100px);
+      width:100%;
+      height:100px;
+    }
     
 
   </style>
@@ -171,5 +179,20 @@
   <script>
   	drawChart({{miniTitles|tojson}}, {{htmlStrings|tojson}});
   </script>
+
+
+</div>
+<div id="metrics">
+  <span id="name">{{cardData}}["Name"]</span>
+  <span id="title">{{cardData}}["Title"]</span>
+</div>
+<script>
+  var cd = {{cardData}};
+  for(var key in cd){
+    if(cd.hasOwnProperty(key)){
+      $("#metrics").append("<span id='" + key + "' class='cTags'>" + key + ": " + cd[key] + "</span>");
+    }
+  }
+</script>
 </body>
 </html>
