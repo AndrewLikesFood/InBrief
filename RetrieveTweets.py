@@ -26,5 +26,6 @@ def retrieveTweets(keyword):
 
     except TwitterSearchException as e:
         print(e)
+    htmlstring = 'TWEET'
 
     return htmlstring

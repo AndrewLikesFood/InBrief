@@ -32,6 +32,8 @@ def ruckme(keyword):
 
 	print "News done"
 	# Pass html strings into resultsPage to generate graphic.
+	htmlStrings = "TWEET"
+	miniTitles = "MINITITLE"
 	print htmlStrings
 	print miniTitles
 	return render_template('resultsPage.html', htmlStrings=htmlStrings, miniTitles=miniTitles)
