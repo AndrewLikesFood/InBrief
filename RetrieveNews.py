@@ -20,6 +20,9 @@ def getNewsExcerpts(keyword):
 			continue
 		title = data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["concepts"][0]["text"]
 		headline = data["result"]["docs"][i]["source"]["enriched"]["url"]["title"]
+		if len(headline) >= 50:
+			headline = headline[:50] + "..."
+
 		url = data["result"]["docs"][i]["source"]["enriched"]["url"]["url"]
 		sentiment = data["result"]["docs"][i]["source"]["enriched"]["url"]["enrichedTitle"]["docSentiment"]["score"]
 		entities = ""
