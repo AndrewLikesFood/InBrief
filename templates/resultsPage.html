@@ -19,6 +19,7 @@
   <script src="../static/bower_components/bubble-chart/src/bubble-chart.js"></script>
   <script src="../static/bower_components/bubble-chart/src/plugins/central-click/central-click.js"></script>
   <script src="../static/bower_components/bubble-chart/src/plugins/lines/lines.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <script src="../static/briefer.js">
   </script>
 
@@ -34,10 +35,91 @@
     	height:80%; 
     	width:100% 
     }
+    .titlePanel {
+    	display: flex;
+    	padding: 5px;
+    	justify-content: center;
+    	font-family: 'Source Sans Pro', sans-serif;
+    	text-align: center;
+    	font-size: 30px;
+    	font-weight: bold;
+    	color: white;
+    	align-items: center;
+    	position: fixed;
+    	width: 305px;
+    	top: 240px;
+    	left: 565px;
+    	background: transparent;
+    	z-index: 100;
+    }
+    .twitterPanel {
+    	display: flex;
+    	padding: 5px;
+    	justify-content: center;
+    	font-family: 'Source Sans Pro', sans-serif;
+    	text-align: center;
+    	color: white;
+    	align-items: center;
+    	width: 305px;
+    	height: 70px;
+    	position: fixed;
+    	top: 300px;
+    	left: 590px;
+    	background: transparent;
+    	border: 1px solid white;
+    	border-radius: 30px;
+    	z-index: 100;
+    }
+    #twitterIcon {
+    	color: white;
+    	font-size: : 50px;
+    	position: fixed;
+    	top: 324px;
+    	left: 545px;
+    	z-index: 100;
+    }
+    .wikipediaPanel {
+    	display: flex;
+    	padding: 5px;
+    	justify-content: center;
+    	font-family: 'Source Sans Pro', sans-serif;
+    	text-align: center;
+    	font-size: 13px;
+    	color: white;
+    	align-items: center;
+    	width: 305px;
+    	height: 160px;
+    	position: fixed;
+    	top: 390px;
+    	left: 550px;
+    	background: transparent;
+    	border: 1px solid white;
+    	border-radius: 40px;
+    	z-index: 100;
+    }
+    #wikipediaIcon {
+    	color: white;
+    	font-size: 50px;
+    	position: fixed;
+    	top: 445px;
+    	left: 875px;
+    	z-index: 100;
+    }
   </style>
 </head>
 <body style="background: #FFFFFF">
 <div class="bubbleChart"/>
+<div class="titlePanel">
+	Social networking site
+</div>
+<i id="twitterIcon" style="font-size: 35px"class="fa fa-twitter"></i>
+<div class="twitterPanel"> 
+	And their words to the root and the rock would echo down, down and the magic would hear and answer, faint as a falling butterfly. 
+</div>
+<i id="wikipediaIcon" style="font-size: 30px" class="fa fa-wikipedia-w"></i>
+<div class="wikipediaPanel">
+	The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes. It was one of the earliest fish to be domesticated, and is one of the most commonly kept aquarium fish. The goldfish (Carassius auratus) is a freshwater fish in the family Cyprinidae of order Cypriniformes. It was one of the earliest fish to be domesticated, and is one of the most commonly kept aquarium fish.
+</div>
   <script>
     drawChart({{miniTitles|tojson}}, {{htmlStrings|tojson}});;
   </script>

@@ -39,11 +39,7 @@ d3.svg.BubbleChart.define("central-click", function (options) {
           .attr("x", function (d) {return d.cx;})
           .attr("y", function (d) {return d.cy;});
         $("body").append("<div id='card'></div>");
-        $("#card").width(480).height(500).css({
-              position: 'absolute',
-              top: '40%',
-              left: '40%'
-          })
+        $("#card")
           .html(options.text[parseInt(self.centralNode.attr("id"))]);
       });
       return fn;
