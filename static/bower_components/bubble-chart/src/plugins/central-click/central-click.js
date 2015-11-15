@@ -22,6 +22,7 @@ d3.svg.BubbleChart.define("central-click", function (options) {
     return function (node) {
       var fn = original.apply(this, arguments);
       node.select("text.central-click").remove();
+      node.select("foreignObject.card").remove();
       return fn;
     };
   })();
@@ -36,8 +37,9 @@ d3.svg.BubbleChart.define("central-click", function (options) {
           .attr(options.attr)
           .style(options.style)
           .attr("x", function (d) {return d.cx;})
-          .attr("y", function (d) {return d.cy;})
-          .text(options.text)
+          .attr("y", function (d) {return d.cy;});
+        node.append("foreignObject").attr("id", "card").attr("width", 480).attr("height", 500).append("xhtml:div") 
+          .html(options.text[parseInt(self.centralNode.attr("id"))])
           .style("opacity", 0).transition().duration(self.getOptions().transitDuration / 2).style("opacity", "0.8");
       });
       return fn;
